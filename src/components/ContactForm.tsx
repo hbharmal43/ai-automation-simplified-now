@@ -40,9 +40,9 @@ export const ContactForm = () => {
   };
 
   return (
-    <Card className="bg-white/10 backdrop-blur-sm border-gray-600">
+    <Card className="bg-white/5 backdrop-blur-sm border-slate-700">
       <CardHeader>
-        <CardTitle className="text-white text-2xl">Get Your Free Consultation</CardTitle>
+        <CardTitle className="text-white text-2xl">Get Your Free Enterprise Consultation</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -54,44 +54,45 @@ export const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-white/10 border-gray-600 text-white placeholder:text-gray-300"
+                className="bg-white/10 border-slate-600 text-white placeholder:text-slate-300"
               />
             </div>
             <div>
               <Input
                 name="email"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Business Email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-white/10 border-gray-600 text-white placeholder:text-gray-300"
+                className="bg-white/10 border-slate-600 text-white placeholder:text-slate-300"
               />
             </div>
           </div>
           
           <Input
             name="company"
-            placeholder="Company Name (Optional)"
+            placeholder="Company Name"
             value={formData.company}
             onChange={handleChange}
-            className="bg-white/10 border-gray-600 text-white placeholder:text-gray-300"
+            required
+            className="bg-white/10 border-slate-600 text-white placeholder:text-slate-300"
           />
           
           <Textarea
             name="message"
-            placeholder="Tell us about the tasks you'd like to automate..."
+            placeholder="Tell us about your automation needs and current challenges..."
             value={formData.message}
             onChange={handleChange}
             required
             rows={4}
-            className="bg-white/10 border-gray-600 text-white placeholder:text-gray-300"
+            className="bg-white/10 border-slate-600 text-white placeholder:text-slate-300"
           />
           
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 hover-scale"
+            className="w-full bg-orange-600 hover:bg-orange-700"
             size="lg"
           >
             {isSubmitting ? "Sending..." : "Get Free Consultation"}
