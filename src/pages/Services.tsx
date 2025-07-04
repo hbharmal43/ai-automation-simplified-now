@@ -2,13 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ArrowLeft, Sheets, Mail, Users, Bot, BarChart, Clock } from "lucide-react";
+import { ArrowRight, ArrowLeft, FileSpreadsheet, Mail, Users, Bot, BarChart, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
     {
-      icon: <Sheets className="h-12 w-12 text-green-600" />,
+      icon: <FileSpreadsheet className="h-12 w-12 text-green-600" />,
       title: "Google Sheets Automation",
       description: "Transform your spreadsheets into powerful, self-updating databases that sync with your business tools automatically.",
       useCase: "Perfect for inventory tracking, financial reporting, and data collection that updates in real-time without manual input.",
