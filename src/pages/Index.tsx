@@ -8,6 +8,7 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CountUpStats } from "@/components/CountUpStats";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -16,20 +17,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-slate-900">AutomateFlow</div>
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/services" className="text-gray-600 hover:text-orange-600 transition-colors">Services</Link>
-            <a href="#benefits" className="text-gray-600 hover:text-orange-600 transition-colors">Benefits</a>
-            <a href="#testimonials" className="text-gray-600 hover:text-orange-600 transition-colors">Testimonials</a>
-          </div>
-          <Button onClick={scrollToContact} className="bg-orange-600 hover:bg-orange-700 text-white pulse-glow">
-            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section with Curved Background */}
       <section className="relative pt-20 pb-20 overflow-hidden">
@@ -309,7 +297,7 @@ const Index = () => {
               <TestimonialCard
                 name="Sarah Johnson"
                 company="TechStart Inc."
-                text="AutomateFlow transformed our operations completely. We now process 10x more data with half the team. The AI-powered workflows are incredibly intelligent."
+                text="AutoGenix transformed our operations completely. We now process 10x more data with half the team. The AI-powered workflows are incredibly intelligent."
                 rating={5}
               />
             </div>
@@ -388,7 +376,7 @@ const Index = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-lg">Email Us</div>
-                    <div className="text-slate-300">hello@automateflow.com</div>
+                    <div className="text-slate-300">hello@autogenix.ai</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 animate-slide-in" style={{ animationDelay: '0.3s' }}>
@@ -424,7 +412,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="text-2xl font-bold text-orange-400 mb-4">AutomateFlow</div>
+              <div className="text-2xl font-bold text-orange-400 mb-4">AutoGenix</div>
               <p className="text-gray-400">
                 Enterprise-scale AI automation for modern businesses.
               </p>
@@ -459,7 +447,7 @@ const Index = () => {
           </div>
           <div className="border-t border-gray-800 pt-8 text-center">
             <div className="text-sm text-gray-500">
-              © 2024 AutomateFlow. All rights reserved.
+              © 2024 AutoGenix. All rights reserved.
             </div>
           </div>
         </div>
