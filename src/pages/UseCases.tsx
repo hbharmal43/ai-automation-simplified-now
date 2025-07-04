@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ArrowLeft, FileText, Share2, Package, BarChart } from "lucide-react";
+import { ArrowRight, FileText, Share2, Package, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 
@@ -42,13 +42,9 @@ const UseCases = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-orange-50 to-purple-50">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-slate-50 via-orange-50 to-purple-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in">
-            <Link to="/" className="inline-flex items-center text-orange-600 hover:text-orange-700 mb-6">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
             <h1 className="text-5xl font-bold text-slate-900 mb-6">
               Real Automations We've Built
             </h1>
@@ -60,8 +56,15 @@ const UseCases = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">💼 Success Stories & Workflows</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              See how we've transformed businesses with custom automation solutions that save time and increase efficiency.
+            </p>
+          </div>
+          
           <div className="space-y-12">
             {useCases.map((useCase, index) => (
               <Card key={index} className="max-w-4xl mx-auto hover-scale bg-white shadow-lg animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -116,6 +119,52 @@ const UseCases = () => {
           </Link>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 bg-black text-white">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="text-2xl font-bold text-orange-400 mb-4">AutoGenix</div>
+              <p className="text-gray-400">
+                Enterprise-scale AI automation for modern businesses.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Solutions</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link to="/services" className="hover:text-white transition-colors">Workflow Automation</Link></li>
+                <li><Link to="/services" className="hover:text-white transition-colors">Data Processing</Link></li>
+                <li><Link to="/services" className="hover:text-white transition-colors">AI Integration</Link></li>
+                <li><Link to="/services" className="hover:text-white transition-colors">Enterprise Security</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Contact</li>
+                <li>Support</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Documentation</li>
+                <li>Case Studies</li>
+                <li>Blog</li>
+                <li>Community</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <div className="text-sm text-gray-500">
+              © 2024 AutoGenix. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
