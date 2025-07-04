@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, Mail, MessageCircle, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,22 +32,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-slate-900">AutoGenix</Link>
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-orange-600 transition-colors">Home</Link>
-            <Link to="/services" className="text-gray-600 hover:text-orange-600 transition-colors">Services</Link>
-            <Link to="/how-it-works" className="text-gray-600 hover:text-orange-600 transition-colors">Process</Link>
-            <Link to="/use-cases" className="text-gray-600 hover:text-orange-600 transition-colors">Use Cases</Link>
-            <Link to="/contact" className="text-orange-600 font-medium">Contact</Link>
-          </div>
-          <Button className="bg-orange-600 hover:bg-orange-700 text-white">
-            Get Started
-          </Button>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-orange-50 to-purple-50">
