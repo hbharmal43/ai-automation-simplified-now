@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Phone, Search, Wrench, Rocket } from "lucide-react";
@@ -8,27 +9,31 @@ const HowItWorks = () => {
   const steps = [
     {
       number: "1",
-      icon: <Phone className="h-8 w-8 text-orange-600" />,
+      icon: <Phone className="h-8 w-8 text-white" />,
       title: "Free Discovery Call",
-      description: "We'll hop on a 15-min call to understand your business and daily tasks."
+      description: "We'll hop on a 15-min call to understand your business and daily tasks.",
+      color: "bg-gradient-to-r from-orange-500 to-orange-600"
     },
     {
       number: "2",
-      icon: <Search className="h-8 w-8 text-blue-600" />,
+      icon: <Search className="h-8 w-8 text-white" />,
       title: "Process Mapping",
-      description: "We review your tools (Sheets, Forms, CRM, etc.) and identify where AI or automation can help."
+      description: "We review your tools (Sheets, Forms, CRM, etc.) and identify where AI or automation can help.",
+      color: "bg-gradient-to-r from-blue-500 to-blue-600"
     },
     {
       number: "3",
-      icon: <Wrench className="h-8 w-8 text-purple-600" />,
+      icon: <Wrench className="h-8 w-8 text-white" />,
       title: "Build & Deliver",
-      description: "We create a fully functional workflow using tools like N8n, GPT, Sheets, and more."
+      description: "We create a fully functional workflow using tools like N8n, GPT, Sheets, and more.",
+      color: "bg-gradient-to-r from-purple-500 to-purple-600"
     },
     {
       number: "4",
-      icon: <Rocket className="h-8 w-8 text-green-600" />,
+      icon: <Rocket className="h-8 w-8 text-white" />,
       title: "Launch & Support",
-      description: "You approve the flow → we activate it. We also offer optional monthly support."
+      description: "You approve the flow → we activate it. We also offer optional monthly support.",
+      color: "bg-gradient-to-r from-green-500 to-green-600"
     }
   ];
 
@@ -63,26 +68,26 @@ const HowItWorks = () => {
           {/* Desktop Timeline */}
           <div className="hidden lg:block mb-20">
             <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 transform -translate-y-1/2"></div>
-              <div className="absolute top-1/2 left-0 h-1 bg-orange-600 transform -translate-y-1/2 w-1/4"></div>
+              {/* Progressive Timeline Line */}
+              <div className="absolute top-24 left-0 right-0 h-1 bg-gray-200"></div>
+              <div className="absolute top-24 left-0 h-1 bg-gradient-to-r from-orange-500 via-blue-500 via-purple-500 to-green-500 w-full"></div>
               
               <div className="grid grid-cols-4 gap-8">
                 {steps.map((step, index) => (
                   <div key={index} className="relative">
-                    {/* Step Circle */}
+                    {/* Step Circle with Gradient */}
                     <div className="flex justify-center mb-6">
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl ${
-                        index === 0 ? 'bg-orange-600' : 'bg-gray-300'
-                      }`}>
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ${step.color}`}>
                         {step.number}
                       </div>
                     </div>
                     
-                    <Card className="text-center hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                    <Card className="text-center hover-scale animate-fade-in shadow-lg border-0 bg-gradient-to-b from-white to-gray-50" style={{ animationDelay: `${index * 0.2}s` }}>
                       <CardHeader className="pb-3">
                         <div className="flex justify-center mb-3">
-                          {step.icon}
+                          <div className={`p-3 rounded-xl ${step.color}`}>
+                            {step.icon}
+                          </div>
                         </div>
                         <CardTitle className="text-lg">{step.title}</CardTitle>
                       </CardHeader>
@@ -90,6 +95,13 @@ const HowItWorks = () => {
                         <p className="text-sm text-gray-600">{step.description}</p>
                       </CardContent>
                     </Card>
+                    
+                    {/* Arrow between steps */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute -right-4 top-32 text-gray-400">
+                        <ArrowRight className="h-6 w-6" />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -97,24 +109,37 @@ const HowItWorks = () => {
           </div>
 
           {/* Mobile/Tablet Steps */}
-          <div className="lg:hidden space-y-8">
+          <div className="lg:hidden space-y-6">
             {steps.map((step, index) => (
-              <Card key={index} className="hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardHeader className="flex flex-row items-center space-y-0 pb-4">
-                  <div className="w-12 h-12 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold mr-4">
-                    {step.number}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-2">
-                      {step.icon}
-                      <CardTitle className="text-xl ml-3">{step.title}</CardTitle>
+              <div key={index} className="relative">
+                <Card className="hover-scale animate-fade-in shadow-lg border-0 bg-gradient-to-r from-white to-gray-50" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardHeader className="flex flex-row items-center space-y-0 pb-4">
+                    <div className={`w-12 h-12 rounded-full text-white flex items-center justify-center font-bold mr-4 ${step.color}`}>
+                      {step.number}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center mb-2">
+                        <div className={`p-2 rounded-lg ${step.color} mr-3`}>
+                          {React.cloneElement(step.icon, { className: "h-6 w-6 text-white" })}
+                        </div>
+                        <CardTitle className="text-xl">{step.title}</CardTitle>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">{step.description}</p>
+                  </CardContent>
+                </Card>
+                
+                {/* Mobile Arrow */}
+                {index < steps.length - 1 && (
+                  <div className="flex justify-center py-4">
+                    <div className="text-gray-400">
+                      <ArrowRight className="h-6 w-6 rotate-90" />
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{step.description}</p>
-                </CardContent>
-              </Card>
+                )}
+              </div>
             ))}
           </div>
         </div>
