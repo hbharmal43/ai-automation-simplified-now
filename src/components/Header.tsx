@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-slate-900">AutoGenix</Link>
+        <Link to="/" className="text-2xl font-bold text-slate-900">Quoraflo</Link>
         <div className="hidden md:flex items-center space-x-8">
           <Link 
             to="/" 
