@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { CountUpStats } from "@/components/CountUpStats";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+import heroTeamImage from "@/assets/hero-team.jpg";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -61,6 +62,13 @@ const Index = () => {
             </div>
             
             <div className="relative animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="mb-8">
+                <img 
+                  src={heroTeamImage} 
+                  alt="Professional business team collaborating on automation solutions" 
+                  className="w-full h-64 object-cover rounded-2xl shadow-xl"
+                />
+              </div>
               <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 hover-scale">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
