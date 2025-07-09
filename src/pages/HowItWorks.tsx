@@ -5,10 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Phone, Search, Wrench, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
-import discoveryCallImage from "@/assets/discovery-call.jpg";
-import processMappingImage from "@/assets/process-mapping.jpg";
-import buildDeliverImage from "@/assets/build-deliver.jpg";
-import launchSupportImage from "@/assets/launch-support.jpg";
 
 const HowItWorks = () => {
   const steps = [
@@ -17,32 +13,28 @@ const HowItWorks = () => {
       icon: <Phone className="h-8 w-8 text-white" />,
       title: "Free Discovery Call",
       description: "We'll hop on a 15-min call to understand your business and daily tasks.",
-      gradient: "from-blue-500 to-purple-600",
-      image: discoveryCallImage
+      gradient: "from-blue-500 to-purple-600"
     },
     {
       number: "2",
       icon: <Search className="h-8 w-8 text-white" />,
       title: "Process Mapping",
       description: "We review your tools (Sheets, Forms, CRM, etc.) and identify where AI or automation can help.",
-      gradient: "from-green-500 to-teal-600",
-      image: processMappingImage
+      gradient: "from-green-500 to-teal-600"
     },
     {
       number: "3",
       icon: <Wrench className="h-8 w-8 text-white" />,
       title: "Build & Deliver",
       description: "We create a fully functional workflow using tools like N8n, GPT, Sheets, and more.",
-      gradient: "from-orange-500 to-red-600",
-      image: buildDeliverImage
+      gradient: "from-orange-500 to-red-600"
     },
     {
       number: "4",
       icon: <Rocket className="h-8 w-8 text-white" />,
       title: "Launch & Support",
       description: "You approve the flow → we activate it. We also offer optional monthly support.",
-      gradient: "from-purple-500 to-pink-600",
-      image: launchSupportImage
+      gradient: "from-purple-500 to-pink-600"
     }
   ];
 
@@ -90,13 +82,6 @@ const HowItWorks = () => {
                       </div>
                     </div>
                     
-                    <div className="mb-4">
-                      <img 
-                        src={step.image} 
-                        alt={step.title} 
-                        className="w-full h-48 object-cover rounded-xl shadow-md"
-                      />
-                    </div>
                     <Card className={`text-center hover-scale animate-fade-in shadow-lg border-0 bg-gradient-to-br ${step.gradient} text-white transform transition-all duration-300 hover:shadow-2xl`} style={{ animationDelay: `${index * 0.2}s` }}>
                       <CardHeader className="pb-3">
                         <div className="flex justify-center mb-3">
@@ -127,13 +112,6 @@ const HowItWorks = () => {
           <div className="lg:hidden space-y-6">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="mb-4">
-                  <img 
-                    src={step.image} 
-                    alt={step.title} 
-                    className="w-full h-48 object-cover rounded-xl shadow-md"
-                  />
-                </div>
                 <Card className={`hover-scale animate-fade-in shadow-lg border-0 bg-gradient-to-r ${step.gradient} text-white transform transition-all duration-300 hover:shadow-2xl`} style={{ animationDelay: `${index * 0.1}s` }}>
                   <CardHeader className="flex flex-row items-center space-y-0 pb-4">
                     <div className="w-12 h-12 rounded-full bg-white border-2 border-gray-300 text-gray-700 flex items-center justify-center font-bold mr-4">

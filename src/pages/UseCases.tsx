@@ -3,10 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, FileText, Share2, Package, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
-import clientManagementImage from "@/assets/client-management.jpg";
-import contentAutomationImage from "@/assets/content-automation.jpg";
-import ecommerceAutomationImage from "@/assets/ecommerce-automation.jpg";
-import analyticsReportingImage from "@/assets/analytics-reporting.jpg";
 
 const UseCases = () => {
   const useCases = [
@@ -15,8 +11,7 @@ const UseCases = () => {
       title: "🧾 Client Intake + GPT Summary",
       workflow: "Tally Form → GPT-4 Summary → Google Sheet → Welcome Email",
       useCase: "A business coach wanted summarized client notes + automated replies.",
-      tags: ["Coaching", "Client Management", "AI Summary"],
-      image: clientManagementImage
+      tags: ["Coaching", "Client Management", "AI Summary"]
     },
     {
       icon: <Share2 className="h-10 w-10 text-purple-600" />,
@@ -24,24 +19,21 @@ const UseCases = () => {
       workflow: "Notion (or Google Doc) → GPT → 3 LinkedIn posts + 1 IG caption",
       subWorkflow: "Auto-published via Zapier",
       useCase: "A content creator wanted to repurpose her long-form content into daily social posts.",
-      tags: ["Content Marketing", "Social Media", "Repurposing"],
-      image: contentAutomationImage
+      tags: ["Content Marketing", "Social Media", "Repurposing"]
     },
     {
       icon: <Package className="h-10 w-10 text-green-600" />,
       title: "🛒 Order Status to Email + Sheet",
       workflow: "Shopify order → Google Sheet tracker → GPT writes delivery update → Email sent to customer",
       useCase: "A boutique seller wanted to automate status updates and reduce support queries.",
-      tags: ["E-commerce", "Customer Service", "Order Management"],
-      image: ecommerceAutomationImage
+      tags: ["E-commerce", "Customer Service", "Order Management"]
     },
     {
       icon: <BarChart className="h-10 w-10 text-orange-600" />,
       title: "📊 Weekly Team Insights via GPT",
       workflow: "Google Sheet (logs) → GPT → Weekly email digest to founder",
       useCase: "A startup founder wanted a Monday morning summary of what happened last week.",
-      tags: ["Analytics", "Team Management", "Reporting"],
-      image: analyticsReportingImage
+      tags: ["Analytics", "Team Management", "Reporting"]
     }
   ];
 
@@ -76,48 +68,37 @@ const UseCases = () => {
           <div className="space-y-12">
             {useCases.map((useCase, index) => (
               <Card key={index} className="max-w-4xl mx-auto hover-scale bg-white shadow-lg animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="md:flex">
-                  <div className="md:w-1/3">
-                    <img 
-                      src={useCase.image} 
-                      alt={useCase.title} 
-                      className="w-full h-64 md:h-full object-cover md:rounded-l-lg rounded-t-lg md:rounded-tr-none"
-                    />
+                <CardHeader className="pb-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 bg-gray-50 rounded-xl">
+                      {useCase.icon}
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-2xl text-slate-900 mb-3">{useCase.title}</CardTitle>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {useCase.tags.map((tag, tagIndex) => (
+                          <span key={tagIndex} className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="md:w-2/3">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-start space-x-4">
-                        <div className="p-3 bg-gray-50 rounded-xl">
-                          {useCase.icon}
-                        </div>
-                        <div className="flex-1">
-                          <CardTitle className="text-2xl text-slate-900 mb-3">{useCase.title}</CardTitle>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {useCase.tags.map((tag, tagIndex) => (
-                              <span key={tagIndex} className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <div className="font-medium text-blue-900 mb-2">Workflow:</div>
-                        <div className="text-blue-800 font-mono text-sm mb-2">{useCase.workflow}</div>
-                        {useCase.subWorkflow && (
-                          <div className="text-blue-700 text-sm">{useCase.subWorkflow}</div>
-                        )}
-                      </div>
-                      
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <div className="font-medium text-green-900 mb-2">Use case:</div>
-                        <div className="text-green-800 text-sm">{useCase.useCase}</div>
-                      </div>
-                    </CardContent>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <div className="font-medium text-blue-900 mb-2">Workflow:</div>
+                    <div className="text-blue-800 font-mono text-sm mb-2">{useCase.workflow}</div>
+                    {useCase.subWorkflow && (
+                      <div className="text-blue-700 text-sm">{useCase.subWorkflow}</div>
+                    )}
                   </div>
-                </div>
+                  
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <div className="font-medium text-green-900 mb-2">Use case:</div>
+                    <div className="text-green-800 text-sm">{useCase.useCase}</div>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
