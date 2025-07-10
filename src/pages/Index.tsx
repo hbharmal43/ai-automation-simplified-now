@@ -23,44 +23,43 @@ const Index = () => {
       <Header />
 
       {/* Hero Section with Modern Design */}
-      <section className="relative pt-20 pb-20 overflow-hidden">
-        {/* Background with beautiful gradients and patterns */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        {/* Background with subtle patterns */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-primary opacity-5"></div>
           <div 
-            className="absolute inset-0 opacity-30"
+            className="absolute inset-0 opacity-20"
             style={{ 
               backgroundImage: `url(${heroAbstractBg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90"></div>
+          <div className="absolute inset-0 bg-background/95"></div>
         </div>
         
         <div className="relative container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
-            <div className="space-y-8 z-10">
-              <Badge className="bg-primary-light border-primary/20 text-primary font-semibold px-4 py-2 animate-fade-in shimmer">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+            <div className="space-y-6 z-10">
+              <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 animate-fade-in">
                 <Sparkles className="w-4 h-4 mr-2" />
                 The Future of Business is Here
               </Badge>
               
-              <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight animate-slide-up">
-                <span className="text-gradient">Transform</span> Your Business
+              <h1 className="text-5xl lg:text-6xl font-display font-bold leading-tight animate-slide-up">
+                <span className="text-primary">Transform</span> Your Business
                 <span className="text-foreground block">with </span>
-                <span className="text-gradient">AI Automation</span>
+                <span className="text-primary">AI Automation</span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 Revolutionize your operations with intelligent automation that scales. From simple workflows to complex AI-driven processes, we help businesses achieve unprecedented efficiency and growth.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
                 <Button 
                   size="lg" 
                   onClick={scrollToContact}
-                  className="bg-gradient-primary text-primary-foreground text-lg px-10 py-6 rounded-xl font-semibold shadow-elegant hover:shadow-glow hover-lift shimmer group"
+                  className="bg-primary text-primary-foreground text-lg px-8 py-4 rounded-xl font-semibold shadow-card hover:shadow-elegant hover-lift group"
                 >
                   Start Your Transformation 
                   <Rocket className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -68,53 +67,36 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="text-lg px-10 py-6 rounded-xl font-semibold glass hover:bg-primary/5 border-primary/20"
+                  className="text-lg px-8 py-4 rounded-xl font-semibold bg-card/80 backdrop-blur-sm border-border/50"
                 >
                   <Activity className="mr-3 h-5 w-5" />
                   Watch Live Demo
                 </Button>
-              </div>
-              
-              {/* Trust indicators */}
-              <div className="flex items-center space-x-8 pt-8 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">99.9%</div>
-                  <div className="text-sm text-muted-foreground">Uptime</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">Support</div>
-                </div>
               </div>
             </div>
             
             <div className="relative animate-fade-in lg:pl-8" style={{ animationDelay: '0.4s' }}>
               {/* Main hero image */}
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-700"></div>
                 <img 
                   src={heroBusinessTeam} 
                   alt="Professional team working with AI automation" 
-                  className="relative rounded-3xl shadow-elegant hover:shadow-glow transition-all duration-700 hover-lift w-full"
+                  className="relative rounded-3xl shadow-card hover:shadow-elegant transition-all duration-700 hover-lift w-full"
                 />
                 
                 {/* Floating automation card */}
-                <div className="absolute -bottom-8 -left-8 bg-card glass border-primary/20 rounded-2xl p-6 shadow-elegant animate-float">
+                <div className="absolute -bottom-8 -left-8 bg-card/90 backdrop-blur-sm border border-border/50 rounded-2xl p-6 shadow-card animate-float">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="text-sm font-medium text-card-foreground">Live Automation</div>
                       <div className="flex items-center text-emerald-500 text-sm font-medium">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse-glow"></div>
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></div>
                         Running
                       </div>
                     </div>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                           <Database className="h-4 w-4 text-primary-foreground" />
                         </div>
                         <div className="flex-1">
@@ -123,7 +105,7 @@ const Index = () => {
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
                           <Workflow className="h-4 w-4 text-secondary-foreground" />
                         </div>
                         <div className="flex-1">
@@ -136,9 +118,9 @@ const Index = () => {
                 </div>
                 
                 {/* Success metrics card */}
-                <div className="absolute -top-6 -right-6 bg-card glass border-primary/20 rounded-xl p-4 shadow-elegant animate-float" style={{ animationDelay: '1s' }}>
+                <div className="absolute -top-6 -right-6 bg-card/90 backdrop-blur-sm border border-border/50 rounded-xl p-4 shadow-card animate-float" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                       <TrendingUp className="h-5 w-5 text-primary-foreground" />
                     </div>
                     <div>
@@ -154,24 +136,23 @@ const Index = () => {
       </section>
 
       {/* Stats Section with Visual Enhancement */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={statsVisualization} 
             alt="Analytics visualization" 
             className="w-full h-full object-cover opacity-5"
           />
-          <div className="absolute inset-0 bg-gradient-light"></div>
+          <div className="absolute inset-0 bg-background/95"></div>
         </div>
         <div className="relative container mx-auto px-6">
-          <div className="text-center mb-16">
-            <Badge className="bg-secondary-light border-secondary/20 text-secondary font-semibold px-4 py-2 mb-6 animate-fade-in">
+          <div className="text-center mb-12">
+            <Badge className="bg-secondary/10 border-secondary/20 text-secondary font-semibold px-4 py-2 mb-6 animate-fade-in">
               <Target className="w-4 h-4 mr-2" />
               Proven Results
             </Badge>
             <h2 className="text-4xl font-display font-bold text-foreground mb-6 animate-slide-up">
-              Transforming Businesses 
-              <span className="text-gradient block">Across Industries</span>
+              Transforming Businesses <span className="text-secondary">Across Industries</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
               Join hundreds of companies that have revolutionized their operations with our automation solutions
@@ -184,9 +165,9 @@ const Index = () => {
       </section>
 
       {/* Trust Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 bg-muted/20">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl font-display font-semibold text-foreground mb-8 animate-fade-in">
+          <h2 className="text-2xl font-display font-semibold text-foreground mb-6 animate-fade-in">
             Trusted by industry leaders, loved by customers.
           </h2>
           <div className="flex justify-center items-center space-x-12 opacity-60 animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -200,16 +181,16 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-6 bg-background">
+      <section id="services" className="py-16 px-6 bg-background">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <Badge className="bg-primary-light border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
               <Zap className="w-4 h-4 mr-2" />
               AI-Powered Solutions
             </Badge>
             <h2 className="text-4xl font-display font-bold text-foreground mb-6 animate-slide-up">
               Not all AI automation
-              <span className="text-gradient block">is created equal</span>
+              <span className="text-primary block">is created equal</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Our enterprise-grade automation solutions are built with AI-powered intelligence that learns, adapts, and scales with your business.
@@ -254,38 +235,37 @@ const Index = () => {
       </section>
 
       {/* Process Automation Section */}
-      <section className="py-20 bg-gradient-dark text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-secondary opacity-10"></div>
+      <section className="py-16 bg-muted/20 relative overflow-hidden">
         <div className="relative container mx-auto px-6">
-          <div className="text-center mb-16">
-            <Badge className="bg-primary-light border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
               <Bot className="w-4 h-4 mr-2" />
               AI-Powered Reliability
             </Badge>
-            <h2 className="text-4xl font-display font-bold mb-6 animate-slide-up">
+            <h2 className="text-4xl font-display font-bold mb-6 animate-slide-up text-foreground">
               Agentic automation you can 
-              <span className="text-gradient block">trust everywhere, every time</span>
+              <span className="text-primary block">trust everywhere, every time</span>
             </h2>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Our AI agents work 24/7 to automate your most complex business processes with precision and reliability.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="glass rounded-2xl p-8 hover-lift animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl font-bold text-gradient mb-4 animate-pulse-glow">300%</div>
-              <div className="text-lg font-semibold mb-2 text-primary-foreground">Productivity Increase</div>
-              <div className="text-primary-foreground/70">Average across all implementations</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.3s' }}>
+              <div className="text-4xl font-bold text-primary mb-4">300%</div>
+              <div className="text-lg font-semibold mb-2 text-card-foreground">Productivity Increase</div>
+              <div className="text-muted-foreground">Average across all implementations</div>
             </div>
-            <div className="glass rounded-2xl p-8 hover-lift animate-slide-in" style={{ animationDelay: '0.4s' }}>
-              <div className="text-4xl font-bold text-gradient mb-4 animate-pulse-glow">99.9%</div>
-              <div className="text-lg font-semibold mb-2 text-primary-foreground">Uptime Guarantee</div>
-              <div className="text-primary-foreground/70">Enterprise-grade reliability</div>
+            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.4s' }}>
+              <div className="text-4xl font-bold text-primary mb-4">99.9%</div>
+              <div className="text-lg font-semibold mb-2 text-card-foreground">Uptime Guarantee</div>
+              <div className="text-muted-foreground">Enterprise-grade reliability</div>
             </div>
-            <div className="glass rounded-2xl p-8 hover-lift animate-slide-in" style={{ animationDelay: '0.5s' }}>
-              <div className="text-4xl font-bold text-gradient mb-4 animate-pulse-glow">24/7</div>
-              <div className="text-lg font-semibold mb-2 text-primary-foreground">Support Available</div>
-              <div className="text-primary-foreground/70">Always here when you need us</div>
+            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.5s' }}>
+              <div className="text-4xl font-bold text-primary mb-4">24/7</div>
+              <div className="text-lg font-semibold mb-2 text-card-foreground">Support Available</div>
+              <div className="text-muted-foreground">Always here when you need us</div>
             </div>
           </div>
         </div>
