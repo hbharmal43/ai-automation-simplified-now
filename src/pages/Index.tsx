@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CountUpStats } from "@/components/CountUpStats";
+import { CalculatorSection } from "@/components/CalculatorSection";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import heroBusinessTeam from "@/assets/hero-business-team.jpg";
@@ -270,6 +271,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator Section */}
+      <CalculatorSection />
 
       {/* Benefits Section */}
       <section id="benefits" className="py-20 px-6 bg-white">
