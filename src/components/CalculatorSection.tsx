@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator, TrendingUp, Clock, DollarSign } from "lucide-react";
+import { Calculator, TrendingUp, Clock, DollarSign, Rocket, Calendar } from "lucide-react";
 
 export const CalculatorSection = () => {
   const [employees, setEmployees] = useState([50]);
@@ -285,6 +285,46 @@ export const CalculatorSection = () => {
                 Schedule a free consultation to validate these projections
               </p>
             </motion.div>
+          </motion.div>
+        </div>
+        
+        {/* CTA Section Below Calculator */}
+        <div className="mt-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-3xl p-8 md:p-12"
+          >
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+                Ready to <span className="text-primary">10x Your Efficiency?</span>
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8">
+                Join thousands of businesses that have transformed their operations with our AI automation platform. Start your journey today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 rounded-xl font-semibold shadow-card hover:shadow-elegant hover-lift"
+                >
+                  <Rocket className="mr-3 h-5 w-5" />
+                  Start Free Trial
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="text-lg px-8 py-4 rounded-xl font-semibold bg-card/80 backdrop-blur-sm border-border/50"
+                >
+                  <Calendar className="mr-3 h-5 w-5" />
+                  Book Consultation
+                </Button>
+              </div>
+              <p className="text-sm text-muted-foreground mt-4">
+                No credit card required • Setup in under 10 minutes • Cancel anytime
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
