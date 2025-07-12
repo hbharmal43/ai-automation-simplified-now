@@ -85,7 +85,7 @@ export const RealResultsSection = () => {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               viewport={{ once: true }}
             >
-              <Card className="h-full bg-card/50 backdrop-blur-sm border border-border/30 hover:border-primary/20 transition-all duration-300 hover-lift">
+              <Card className="h-full bg-card/50 backdrop-blur-sm border-2 border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">

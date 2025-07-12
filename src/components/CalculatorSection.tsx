@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator, TrendingUp, Clock, DollarSign, Rocket, Calendar } from "lucide-react";
+import { Calculator, TrendingUp, Clock, DollarSign, Rocket, Calendar, Phone } from "lucide-react";
 
 export const CalculatorSection = () => {
   const [employees, setEmployees] = useState([50]);
@@ -284,6 +284,42 @@ export const CalculatorSection = () => {
               <p className="text-sm text-muted-foreground text-center mt-3">
                 Schedule a free consultation to validate these projections
               </p>
+            </motion.div>
+
+            {/* Additional CTA inside slider container */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="mt-12 text-center bg-card/30 border border-border/20 rounded-2xl p-8"
+            >
+              <div className="max-w-2xl mx-auto">
+                <h4 className="text-2xl font-bold text-foreground mb-3">
+                  Ready to See These Results in Your Business?
+                </h4>
+                <p className="text-muted-foreground mb-6">
+                  Join 500+ companies that have transformed their operations with our automation solutions.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    variant="default" 
+                    size="lg"
+                    className="px-8 py-4 text-lg font-semibold"
+                  >
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Start Free Trial
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="px-8 py-4 text-lg font-semibold border-primary/30 hover:bg-primary/10"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Expert
+                  </Button>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>

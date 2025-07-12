@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, Zap, Target, CheckCircle, Star, Mail, Phone, Calendar, Users, TrendingUp, Shield, Workflow, Database, Bot, Sparkles, Rocket, Activity } from "lucide-react";
+import Typewriter from "typewriter-effect";
 import { ContactForm } from "@/components/ContactForm";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -117,37 +118,25 @@ const Index = () => {
                 </Badge>
               </motion.div>
               
-              <motion.h1 
+               <motion.h1 
                 className="text-5xl lg:text-7xl font-display font-bold leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.span 
-                  className="text-primary inline-block"
-                  animate={{ 
-                    textShadow: [
-                      "0 0 0px hsl(var(--primary))",
-                      "0 0 10px hsl(var(--primary) / 0.3)",
-                      "0 0 0px hsl(var(--primary))"
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  Transform
-                </motion.span>{" "}
-                <span className="text-foreground">Your Business</span>
-                <br />
-                <span className="text-foreground">with </span>
-                <motion.span 
-                  className="text-primary inline-block"
-                  animate={{ 
-                    scale: [1, 1.02, 1],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  AI Automation
-                </motion.span>
+                <span className="text-foreground">Transform Your Business with </span>
+                <div className="text-primary">
+                  <Typewriter
+                    options={{
+                      strings: ['AI Automation', 'Smart Workflows', 'Intelligent Systems', 'Future Technology'],
+                      autoStart: true,
+                      loop: true,
+                      delay: 100,
+                      deleteSpeed: 50,
+                      cursor: '_'
+                    }}
+                  />
+                </div>
               </motion.h1>
               
               <motion.p 
@@ -355,34 +344,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section with Visual Enhancement */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={statsVisualization} 
-            alt="Analytics visualization" 
-            className="w-full h-full object-cover opacity-5"
-          />
-          <div className="absolute inset-0 bg-background/95"></div>
-        </div>
-        <div className="relative container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="bg-secondary/10 border-secondary/20 text-secondary font-semibold px-4 py-2 mb-6 animate-fade-in">
-              <Target className="w-4 h-4 mr-2" />
-              Proven Results
-            </Badge>
-            <h2 className="text-4xl font-display font-bold text-foreground mb-6 animate-slide-up">
-              Transforming Businesses <span className="text-secondary">Across Industries</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              Join hundreds of companies that have revolutionized their operations with our automation solutions
-            </p>
-          </div>
-          <div className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
-            <CountUpStats />
-          </div>
-        </div>
-      </section>
 
       {/* Trust Section */}
       <section className="py-12 bg-muted/20">
