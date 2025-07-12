@@ -289,15 +289,27 @@ export const CalculatorSection = () => {
         </div>
         
         {/* CTA Section Below Calculator */}
-        <div className="mt-16 text-center">
+        <div className="mt-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-3xl p-8 md:p-12"
+            className="bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12 shadow-card"
           >
             <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="mb-6"
+              >
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                  <Rocket className="w-4 h-4" />
+                  Ready to Transform?
+                </div>
+              </motion.div>
               <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                 Ready to <span className="text-primary">10x Your Efficiency?</span>
               </h3>
@@ -315,7 +327,7 @@ export const CalculatorSection = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="text-lg px-8 py-4 rounded-xl font-semibold bg-card/80 backdrop-blur-sm border-border/50"
+                  className="text-lg px-8 py-4 rounded-xl font-semibold border-primary/30 hover:bg-primary/10"
                 >
                   <Calendar className="mr-3 h-5 w-5" />
                   Book Consultation
