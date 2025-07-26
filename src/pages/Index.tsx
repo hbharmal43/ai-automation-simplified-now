@@ -1,9 +1,9 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock, Zap, Target, CheckCircle, Star, Mail, Phone, Calendar, Users, TrendingUp, Shield, Workflow, Database, Bot, Sparkles, Rocket, Activity } from "lucide-react";
+import { ArrowRight, Clock, Zap, Target, CheckCircle, Star, Mail, Phone, Calendar, Users, TrendingUp, Shield, Workflow, Database, Bot, Sparkles, Rocket, Activity, Brain, BarChart3, Settings, Play, ChevronRight, MessageCircle, Calculator } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import { ContactForm } from "@/components/ContactForm";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -11,6 +11,10 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { CountUpStats } from "@/components/CountUpStats";
 import { CalculatorSection } from "@/components/CalculatorSection";
 import { RealResultsSection } from "@/components/RealResultsSection";
+import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { ResultsProofSection } from "@/components/ResultsProofSection";
+import { ServicesSection } from "@/components/ServicesSection";
+import { AboutSection } from "@/components/AboutSection";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import heroBusinessTeam from "@/assets/hero-business-team.jpg";
@@ -22,15 +26,18 @@ const Index = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToCalculator = () => {
+    document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section with Amazing Animations */}
+      {/* 1. HERO SECTION - Who We Are */}
       <section className="relative pt-20 pb-20 overflow-hidden min-h-screen flex items-center">
         {/* Animated Background */}
         <div className="absolute inset-0">
-          {/* Subtle background image */}
           <div 
             className="absolute inset-0 opacity-5"
             style={{ 
@@ -114,21 +121,21 @@ const Index = () => {
                   >
                     <Sparkles className="w-4 h-4 mr-2" />
                   </motion.div>
-                  The Future of Business is Here
+                  AI-Powered Business Automation
                 </Badge>
               </motion.div>
               
-               <motion.h1 
+              <motion.h1 
                 className="text-5xl lg:text-7xl font-display font-bold leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <span className="text-foreground">Transform Your Business with </span>
+                <span className="text-foreground">Stop Wasting Time on </span>
                 <div className="text-primary">
                   <Typewriter
                     options={{
-                      strings: ['AI Automation', 'Smart Workflows', 'Intelligent Systems', 'Future Technology'],
+                      strings: ['Manual Tasks', 'Repetitive Work', 'Low-Value Activities', 'Admin Tasks'],
                       autoStart: true,
                       loop: true,
                       delay: 100,
@@ -139,13 +146,22 @@ const Index = () => {
                 </div>
               </motion.h1>
               
+              <motion.h2 
+                className="text-3xl lg:text-4xl font-bold text-primary leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Automate 40+ Hours of Manual Work Every Week
+              </motion.h2>
+              
               <motion.p 
                 className="text-xl text-muted-foreground leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                Revolutionize your operations with intelligent automation that scales. From simple workflows to complex AI-driven processes, we help businesses achieve unprecedented efficiency and growth.
+                AI-powered workflows that scale with your business. Focus on growth, not repetitive tasks.
               </motion.p>
               
               <motion.div 
@@ -170,7 +186,7 @@ const Index = () => {
                       transition={{ duration: 0.6 }}
                     />
                     <span className="relative flex items-center">
-                      Start Your Transformation 
+                      Get Your Free Automation Audit
                       <motion.div
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
@@ -188,520 +204,689 @@ const Index = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
+                    onClick={scrollToCalculator}
                     className="text-lg px-10 py-6 rounded-2xl font-semibold bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80"
                   >
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <Activity className="mr-3 h-5 w-5" />
+                      <BarChart3 className="mr-3 h-5 w-5" />
                     </motion.div>
-                    Watch Live Demo
+                    Calculate Your Savings
                   </Button>
                 </motion.div>
               </motion.div>
             </motion.div>
-            
-            <motion.div 
-              className="relative lg:pl-8"
+
+            {/* Hero Visual */}
+            <motion.div
+              className="relative"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              {/* Main hero image with floating effect */}
-              <motion.div 
-                className="relative group"
-                animate={{ 
-                  y: [0, -10, 0] 
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              >
-                <motion.img 
-                  src={heroBusinessTeam} 
-                  alt="Professional team working with AI automation" 
-                  className="relative rounded-3xl shadow-card w-full"
-                  whileHover={{ 
-                    scale: 1.02,
-                    rotateY: 5,
-                    rotateX: 5
-                  }}
-                  transition={{ duration: 0.4 }}
-                  style={{ transformStyle: "preserve-3d" }}
-                />
-                
-                {/* Floating automation card with enhanced animations */}
-                <motion.div 
-                  className="absolute -bottom-8 -left-8 bg-card/95 backdrop-blur-lg border border-border/30 rounded-2xl p-6 shadow-elegant"
-                  initial={{ opacity: 0, y: 50, rotateX: -10 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    rotateX: 0,
-                  }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateX: 5,
-                    rotateY: -5
-                  }}
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm font-medium text-card-foreground">Live Automation</div>
-                      <div className="flex items-center text-emerald-500 text-sm font-medium">
-                        <motion.div 
-                          className="w-2 h-2 bg-emerald-500 rounded-full mr-2"
-                          animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
-                        Running
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
+                <Card className="relative bg-card/80 backdrop-blur-sm border-border/50 shadow-2xl">
+                  <CardContent className="p-8">
+                    <div className="space-y-6">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <Brain className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">AI-Powered Automation</h3>
+                          <p className="text-sm text-muted-foreground">GPT, Computer Vision, NLP</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-secondary/10 rounded-lg">
+                          <Settings className="h-6 w-6 text-secondary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">Custom Workflows</h3>
+                          <p className="text-sm text-muted-foreground">Tailored to your business</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-green-500/10 rounded-lg">
+                          <Zap className="h-6 w-6 text-green-500" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">Rapid Deployment</h3>
+                          <p className="text-sm text-muted-foreground">Quick time-to-value</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="space-y-3">
-                      <motion.div 
-                        className="flex items-center space-x-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.3, duration: 0.5 }}
-                      >
-                        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                          <Database className="h-4 w-4 text-primary-foreground" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-card-foreground">Data Sync</div>
-                          <motion.div 
-                            className="text-xs text-muted-foreground"
-                            animate={{ opacity: [0.7, 1, 0.7] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            2,847 records synced
-                          </motion.div>
-                        </div>
-                      </motion.div>
-                      <motion.div 
-                        className="flex items-center space-x-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.5, duration: 0.5 }}
-                      >
-                        <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
-                          <Workflow className="h-4 w-4 text-secondary-foreground" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-card-foreground">AI Processing</div>
-                          <div className="text-xs text-muted-foreground">94% efficiency gained</div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-                
-                {/* Success metrics card with 3D effect */}
-                <motion.div 
-                  className="absolute -top-6 -right-6 bg-card/95 backdrop-blur-lg border border-border/30 rounded-xl p-4 shadow-elegant"
-                  initial={{ opacity: 0, scale: 0, rotateX: -10 }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1, 
-                    rotateX: 0,
-                  }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotateX: -5,
-                    rotateY: 5
-                  }}
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  <div className="flex items-center space-x-3">
-                    <motion.div 
-                      className="w-10 h-10 bg-primary rounded-full flex items-center justify-center"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
-                      <TrendingUp className="h-5 w-5 text-primary-foreground" />
-                    </motion.div>
-                    <div>
-                      <motion.div 
-                        className="text-lg font-bold text-card-foreground"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                      >
-                        +340%
-                      </motion.div>
-                      <div className="text-xs text-muted-foreground">ROI Increase</div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
+                  </CardContent>
+                </Card>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-
-      {/* Trust Section */}
-      <section className="py-12 bg-muted/20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl font-display font-semibold text-foreground mb-6 animate-fade-in">
-            Trusted by industry leaders, loved by customers.
-          </h2>
-          <div className="flex justify-center items-center space-x-12 opacity-60 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors hover-scale">Gartner</div>
-            <div className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors hover-scale">Forrester</div>
-            <div className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors hover-scale">IDC</div>
-            <div className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors hover-scale">G2</div>
-            <div className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors hover-scale">TrustRadius</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-16 px-6 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
-              <Zap className="w-4 h-4 mr-2" />
-              AI-Powered Solutions
+      {/* 2. PROBLEM STATEMENT - Why We Exist */}
+      <section className="py-20 bg-gradient-to-br from-red-50/50 to-orange-50/50">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="bg-red-100 border-red-200 text-red-700 font-semibold px-4 py-2 mb-6">
+              <Target className="w-4 h-4 mr-2" />
+              The Real Problem
             </Badge>
-            <h2 className="text-4xl font-display font-bold text-foreground mb-6 animate-slide-up">
-              Not all AI automation
-              <span className="text-primary block">is created equal</span>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Your Team is Stuck Doing Low-Value Work
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Our enterprise-grade automation solutions are built with AI-powered intelligence that learns, adapts, and scales with your business.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Manual processes are killing your productivity and preventing your business from scaling efficiently. 
+              Every hour spent on repetitive tasks is an hour not spent on growth.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <ServiceCard
-                icon={<Zap className="h-8 w-8 text-primary" />}
-                title="Intelligent Workflows"
-                description="AI-powered automation that adapts to your business processes and learns from your data patterns."
-                features={["Smart data processing", "Predictive automation", "Self-optimizing workflows"]}
-              />
-            </div>
-            <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
-              <ServiceCard
-                icon={<Shield className="h-8 w-8 text-secondary" />}
-                title="Enterprise Security"
-                description="Bank-level security with end-to-end encryption and compliance with industry standards."
-                features={["SOC 2 compliant", "GDPR ready", "Enterprise SSO"]}
-              />
-            </div>
-            <div className="animate-slide-in" style={{ animationDelay: '0.5s' }}>
-              <ServiceCard
-                icon={<TrendingUp className="h-8 w-8 text-emerald-500" />}
-                title="Scalable Solutions"
-                description="From startup to enterprise, our solutions scale with your business growth and complexity."
-                features={["Unlimited workflows", "API integrations", "Custom solutions"]}
-              />
-            </div>
-          </div>
-          
-          <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Link to="/services">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 font-semibold px-8 py-3 hover-glow">
-                View All Services <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* Process Automation Section */}
-      <section className="py-16 bg-muted/20 relative overflow-hidden">
-        <div className="relative container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6 animate-fade-in">
-              <Bot className="w-4 h-4 mr-2" />
-              AI-Powered Reliability
-            </Badge>
-            <h2 className="text-4xl font-display font-bold mb-6 animate-slide-up text-foreground">
-              Agentic automation you can 
-              <span className="text-primary block">trust everywhere, every time</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Our AI agents work 24/7 to automate your most complex business processes with precision and reliability.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl font-bold text-primary mb-4">300%</div>
-              <div className="text-lg font-semibold mb-2 text-card-foreground">Productivity Increase</div>
-              <div className="text-muted-foreground">Average across all implementations</div>
-            </div>
-            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.4s' }}>
-              <div className="text-4xl font-bold text-primary mb-4">99.9%</div>
-              <div className="text-lg font-semibold mb-2 text-card-foreground">Uptime Guarantee</div>
-              <div className="text-muted-foreground">Enterprise-grade reliability</div>
-            </div>
-            <div className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.5s' }}>
-              <div className="text-4xl font-bold text-primary mb-4">24/7</div>
-              <div className="text-lg font-semibold mb-2 text-card-foreground">Support Available</div>
-              <div className="text-muted-foreground">Always here when you need us</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ROI Calculator Section */}
-      <CalculatorSection />
-
-      {/* Real Results Section */}
-      <RealResultsSection />
-
-      {/* Benefits Section */}
-      <section id="benefits" className="py-20 px-6 bg-white">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-fade-in">
-              <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                When the world's leading companies need 
-                <span className="text-orange-600"> smarter automation</span>, they turn to us.
-              </h2>
-              <div className="space-y-6">
-                {[
-                  "Reduce operational costs by up to 70%",
-                  "Eliminate human error with 99.9% accuracy",
-                  "Scale operations without increasing headcount",
-                  "Get real-time insights and analytics",
-                  "Ensure 24/7 business continuity",
-                  "Achieve ROI within 3 months"
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-4 animate-slide-in" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
-                    <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="h-4 w-4 text-orange-600" />
-                    </div>
-                    <span className="text-lg text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <Card className="p-8 shadow-2xl border border-gray-100 hover-scale">
-                <CardContent className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-red-200/50">
+                <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-slate-900 mb-4">
-                      For breakout performance, there's only one agentic process automation platform.
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Clock className="h-10 w-10 text-red-600" />
                     </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="text-center">
-                      <div className="text-orange-600 font-bold text-lg mb-2">Before</div>
-                      <div className="text-sm text-gray-600 space-y-2">
-                        <div className="bg-red-50 p-2 rounded">40h/week manual work</div>
-                        <div className="bg-red-50 p-2 rounded">High error rates</div>
-                        <div className="bg-red-50 p-2 rounded">Delayed responses</div>
-                        <div className="bg-red-50 p-2 rounded">Limited scalability</div>
+                    <h3 className="text-2xl font-bold mb-4 text-red-700">Time-Consuming Manual Tasks</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Your team wastes 40+ hours per week on data entry, admin work, and repetitive processes that could be automated.
+                    </p>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span>Data Entry</span>
+                        <span className="text-red-600 font-semibold">15h/week</span>
                       </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-green-600 font-bold text-lg mb-2">After</div>
-                      <div className="text-sm text-gray-600 space-y-2">
-                        <div className="bg-green-50 p-2 rounded">5h/week oversight</div>
-                        <div className="bg-green-50 p-2 rounded">99.9% accuracy</div>
-                        <div className="bg-green-50 p-2 rounded">Instant responses</div>
-                        <div className="bg-green-50 p-2 rounded">Unlimited growth</div>
+                      <div className="flex items-center justify-between">
+                        <span>Report Generation</span>
+                        <span className="text-red-600 font-semibold">8h/week</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Email Processing</span>
+                        <span className="text-red-600 font-semibold">12h/week</span>
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6 animate-fade-in">
-              What Our Clients Say
-            </h2>
-            <div className="flex justify-center items-center space-x-2 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
-              ))}
-              <span className="text-lg font-semibold text-gray-700 ml-2">4.9/5 Average Rating</span>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <TestimonialCard
-                name="Sarah Johnson"
-                company="TechStart Inc."
-                text="AutoGenix transformed our operations completely. We now process 10x more data with half the team. The AI-powered workflows are incredibly intelligent."
-                rating={5}
-              />
-            </div>
-            <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
-              <TestimonialCard
-                name="Mike Chen"
-                company="Growth Marketing Co."
-                text="The level of automation they achieved for our client reporting is phenomenal. What used to take days now happens in minutes with better accuracy."
-                rating={5}
-              />
-            </div>
-            <div className="animate-slide-in" style={{ animationDelay: '0.5s' }}>
-              <TestimonialCard
-                name="Emily Rodriguez"
-                company="Enterprise Solutions Ltd."
-                text="Their enterprise-grade security and scalability gave us confidence to automate our most critical processes. ROI was achieved in just 2 months."
-                rating={5}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-orange-200/50">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Workflow className="h-10 w-10 text-orange-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-orange-700">Fragmented Workflows</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Multiple apps and tools create bottlenecks and reduce productivity across your organization.
+                    </p>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span>Context Switching</span>
+                        <span className="text-orange-600 font-semibold">-40%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Data Sync Issues</span>
+                        <span className="text-orange-600 font-semibold">-25%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Process Delays</span>
+                        <span className="text-orange-600 font-semibold">-60%</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-secondary opacity-20"></div>
-        <div className="relative container mx-auto text-center">
-          <Badge className="bg-primary-foreground/20 border-primary-foreground/30 text-primary-foreground font-semibold px-4 py-2 mb-6 animate-fade-in shimmer">
-            <Sparkles className="w-4 h-4 mr-2" />
-            The Future is Now
-          </Badge>
-          <h2 className="text-4xl font-display font-bold mb-6 animate-slide-up">
-            What's next in 
-            <span className="block text-primary-foreground/90">agentic automation</span>
-          </h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto text-primary-foreground/80 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Join thousands of businesses that have already transformed their operations with intelligent automation.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="glass rounded-xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <h3 className="text-xl font-bold mb-4 text-primary-foreground">Enterprise AI</h3>
-              <p className="text-primary-foreground/80">Advanced AI agents that learn and adapt to your business processes automatically.</p>
-            </div>
-            <div className="glass rounded-xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.4s' }}>
-              <h3 className="text-xl font-bold mb-4 text-primary-foreground">Intelligent Integration</h3>
-              <p className="text-primary-foreground/80">Seamlessly connect all your tools and platforms with smart automation workflows.</p>
-            </div>
-            <div className="glass rounded-xl p-6 hover-lift animate-slide-in" style={{ animationDelay: '0.5s' }}>
-              <h3 className="text-xl font-bold mb-4 text-primary-foreground">Predictive Analytics</h3>
-              <p className="text-primary-foreground/80">Get insights before problems occur with AI-powered predictive automation.</p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-purple-200/50">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Users className="h-10 w-10 text-purple-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-purple-700">Scaling Requires More People</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Growth means adding headcount instead of improving efficiency and productivity.
+                    </p>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span>New Hires Needed</span>
+                        <span className="text-purple-600 font-semibold">+3/month</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Training Time</span>
+                        <span className="text-purple-600 font-semibold">+2 weeks</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Management Overhead</span>
+                        <span className="text-purple-600 font-semibold">+50%</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
-          
-          <Button 
-            size="lg" 
-            onClick={scrollToContact}
-            className="bg-background text-foreground hover:bg-background/90 text-lg px-12 py-6 rounded-xl font-semibold shadow-elegant hover:shadow-glow hover-lift shimmer group animate-fade-in"
-            style={{ animationDelay: '0.6s' }}
+
+          {/* Impact Statement */}
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
           >
-            Start Your Transformation 
-            <Rocket className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200/50">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                    <TrendingUp className="h-6 w-6 text-red-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-red-700">The Cost of Inaction</h3>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Every month you delay automation, you're losing <span className="font-bold text-red-600">$15,000+ in productivity</span> and 
+                  <span className="font-bold text-red-600"> 160+ hours of strategic work</span> that could be driving your business forward.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-red-600 mb-2">$15K</div>
+                    <div className="text-sm text-muted-foreground">Monthly productivity loss</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-red-600 mb-2">160h</div>
+                    <div className="text-sm text-muted-foreground">Hours wasted per month</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-red-600 mb-2">-40%</div>
+                    <div className="text-sm text-muted-foreground">Team efficiency</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-900 text-white">
-        <div className="container mx-auto">
+      {/* 3. SOLUTION OVERVIEW - What We Do */}
+      <section className="py-20 bg-gradient-to-br from-green-50/50 to-blue-50/50">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="bg-green-100 border-green-200 text-green-700 font-semibold px-4 py-2 mb-6">
+              <Sparkles className="w-4 h-4 mr-2" />
+              The Solution
+            </Badge>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Turnkey AI Solutions, No Technical Team Needed
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Custom workflows tailored to your business that work with your existing tools and scale with your growth. 
+              We handle the complexity, you get the results.
+            </p>
+          </motion.div>
+
+          {/* Main Solution Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-green-200/50">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-3">
+                    <div className="p-3 bg-green-100 rounded-lg">
+                      <Brain className="h-7 w-7 text-green-600" />
+                    </div>
+                    <span className="text-2xl">AI-First Automation Design</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6 text-lg">
+                    We integrate GPT, computer vision, and NLP with your existing business tools to create intelligent workflows that learn and adapt.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">Natural Language Processing</div>
+                        <div className="text-sm text-muted-foreground">Understand and process emails, documents, and conversations</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">Computer Vision</div>
+                        <div className="text-sm text-muted-foreground">Extract data from images, PDFs, and scanned documents</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">GPT-Powered Decisions</div>
+                        <div className="text-sm text-muted-foreground">Intelligent decision making based on your business rules</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-blue-200/50">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-3">
+                    <div className="p-3 bg-blue-100 rounded-lg">
+                      <Settings className="h-7 w-7 text-blue-600" />
+                    </div>
+                    <span className="text-2xl">Custom Workflows Tailored to Your Business</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6 text-lg">
+                    Every automation is customized to match your specific workflows and business processes. No one-size-fits-all solutions.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">Industry-Specific Solutions</div>
+                        <div className="text-sm text-muted-foreground">Built for your industry's unique challenges and requirements</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">Seamless Integration</div>
+                        <div className="text-sm text-muted-foreground">Works with your existing tools and platforms</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">Scalable Architecture</div>
+                        <div className="text-sm text-muted-foreground">Grows with your business, no rework needed</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Additional Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-emerald-200/50">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-8 w-8 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-emerald-700">Rapid Deployment</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Get your first automation running in weeks, not months. Pilot projects with quick wins.
+                  </p>
+                  <div className="text-2xl font-bold text-emerald-600">2-4 weeks</div>
+                  <div className="text-sm text-muted-foreground">to first automation</div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-purple-200/50">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-purple-700">Enterprise Security</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Bank-level security with end-to-end encryption and compliance with industry standards.
+                  </p>
+                  <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                  <div className="text-sm text-muted-foreground">uptime guarantee</div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-orange-200/50">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-orange-700">Ongoing Support</h3>
+                  <p className="text-muted-foreground mb-4">
+                    We adapt your automations as your business evolves. Long-term partnership approach.
+                  </p>
+                  <div className="text-2xl font-bold text-orange-600">24/7</div>
+                  <div className="text-sm text-muted-foreground">support available</div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Transformation Statement */}
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-gradient-to-r from-green-50 to-blue-50 border-green-200/50">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <Rocket className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-green-700">The Transformation</h3>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6">
+                  From <span className="font-bold text-red-600">40+ hours of manual work</span> to 
+                  <span className="font-bold text-green-600"> 5 hours of oversight</span>. 
+                  From <span className="font-bold text-red-600">fragmented processes</span> to 
+                  <span className="font-bold text-green-600"> seamless automation</span>.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-2">-85%</div>
+                    <div className="text-sm text-muted-foreground">Time reduction</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-2">+300%</div>
+                    <div className="text-sm text-muted-foreground">Productivity increase</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-2">$50K+</div>
+                    <div className="text-sm text-muted-foreground">Annual savings</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. ROI CALCULATOR - Interactive Engagement */}
+      <section id="calculator" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6">
+              <BarChart3 className="w-4 h-4 mr-2" />
+              ROI Calculator
+            </Badge>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Calculate Your Potential Savings
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See ROI in 30 seconds. Get your custom automation plan and discover how much time and money you could save.
+            </p>
+          </motion.div>
+
+          {/* Full-Width Calculator */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="shadow-xl border-primary/20">
+              <CardContent className="p-8">
+                <CalculatorSection />
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Benefits & Social Proof - Below Calculator */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">What You'll Discover</h3>
+                    <div className="space-y-3 text-sm text-muted-foreground">
+                      <div>• Exact Time Savings</div>
+                      <div>• Financial Impact</div>
+                      <div>• Custom Automation Plan</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-green-50 to-blue-50 border-green-200/50">
+                <CardContent className="p-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Star className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">Average Client Results</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-sm">Hours saved/week:</span>
+                        <span className="font-bold text-green-600">40h</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm">Monthly savings:</span>
+                        <span className="font-bold text-green-600">$15K</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm">Productivity boost:</span>
+                        <span className="font-bold text-green-600">3x</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm">Time to deploy:</span>
+                        <span className="font-bold text-green-600">2-4w</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <ArrowRight className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Ready to See Your Numbers?</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Get your free automation audit and detailed ROI analysis.
+                  </p>
+                  <Button 
+                    size="lg" 
+                    onClick={scrollToContact}
+                    className="w-full bg-primary hover:bg-primary/90"
+                  >
+                    Get My Free Audit
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. HOW IT WORKS - Process */}
+      <HowItWorksSection />
+
+      {/* 6. RESULTS & PROOF - Social Proof */}
+      <ResultsProofSection />
+
+      {/* 7. SERVICES DEEP DIVE - What You Offer */}
+      <ServicesSection />
+
+      {/* 8. ABOUT QUORAFLO - Company Credibility */}
+      <AboutSection />
+
+      {/* 9. CONTACT & NEXT STEPS - Conversion */}
+      <section id="contact" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Start Your Automation Journey
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get your free automation audit and discover how much time and money you could save.
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="animate-fade-in">
-              <h2 className="text-4xl font-bold mb-8">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="text-xl text-slate-300 mb-12">
-                Get a free consultation and discover how we can help you achieve enterprise-scale automation with AI-powered workflows.
-              </p>
-              
-              <div className="space-y-8">
-                <div className="flex items-center space-x-4 animate-slide-in" style={{ animationDelay: '0.2s' }}>
-                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
-                    <Mail className="h-6 w-6 text-white" />
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <ContactForm />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div>
+                <h3 className="text-2xl font-bold mb-4">What You'll Get</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span>Free automation audit of your current processes</span>
                   </div>
-                  <div>
-                    <div className="font-semibold text-lg">Email Us</div>
-                    <div className="text-slate-300">hello@autogenix.ai</div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span>Custom ROI calculation for your business</span>
                   </div>
-                </div>
-                <div className="flex items-center space-x-4 animate-slide-in" style={{ animationDelay: '0.3s' }}>
-                  <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-white" />
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span>Detailed automation roadmap</span>
                   </div>
-                  <div>
-                    <div className="font-semibold text-lg">Call Us</div>
-                    <div className="text-slate-300">+1 (555) 123-4567</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 animate-slide-in" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <Calendar className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-lg">Book a Meeting</div>
-                    <div className="text-slate-300">Free 30-minute consultation</div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span>15-minute consultation call</span>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <ContactForm />
-            </div>
+
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Ready to Transform?</h3>
+                <p className="text-muted-foreground mb-6">
+                  Join hundreds of businesses that have already automated their workflows with QuoraFlo.
+                </p>
+                <Button size="lg" className="w-full" onClick={scrollToContact}>
+                  Get Started Today
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-6 bg-gradient-dark text-primary-foreground">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="text-2xl font-display font-bold text-gradient mb-4">Quoraflo</div>
-              <p className="text-primary-foreground/80">
-                Enterprise-scale AI automation for modern businesses.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-primary-foreground">Solutions</h4>
-              <ul className="space-y-2 text-primary-foreground/70">
-                <li><Link to="/services" className="hover:text-primary-foreground transition-colors hover-scale">Workflow Automation</Link></li>
-                <li><Link to="/services" className="hover:text-primary-foreground transition-colors hover-scale">Data Processing</Link></li>
-                <li><Link to="/services" className="hover:text-primary-foreground transition-colors hover-scale">AI Integration</Link></li>
-                <li><Link to="/services" className="hover:text-primary-foreground transition-colors hover-scale">Enterprise Security</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-primary-foreground">Company</h4>
-              <ul className="space-y-2 text-primary-foreground/70">
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">About Us</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Careers</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Contact</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Support</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-primary-foreground">Resources</h4>
-              <ul className="space-y-2 text-primary-foreground/70">
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Documentation</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Case Studies</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Blog</li>
-                <li className="hover:text-primary-foreground transition-colors hover-scale cursor-pointer">Community</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-primary-foreground/20 pt-8 text-center">
-            <div className="text-sm text-primary-foreground/60">
-              © 2024 Quoraflo. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
