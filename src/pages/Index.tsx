@@ -3,18 +3,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock, Zap, Target, CheckCircle, Star, Mail, Phone, Calendar, Users, TrendingUp, Shield, Workflow, Database, Bot, Sparkles, Rocket, Activity, Brain, BarChart3, Settings, Play, ChevronRight, MessageCircle, Calculator } from "lucide-react";
+import { ArrowRight, Clock, Zap, Target, CheckCircle, Star, Mail, Phone, Calendar, Users, TrendingUp, Shield, ShieldCheck, Workflow, Database, Bot, Sparkles, Rocket, Activity, Brain, BarChart3, Settings, Play, ChevronRight, MessageCircle, Calculator, Lock, FileCheck, Globe, KeyRound, Server } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import { ContactForm } from "@/components/ContactForm";
-import { TestimonialCard } from "@/components/TestimonialCard";
-import { ServiceCard } from "@/components/ServiceCard";
-import { CountUpStats } from "@/components/CountUpStats";
 import { CalculatorSection } from "@/components/CalculatorSection";
 import { RealResultsSection } from "@/components/RealResultsSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
-import { ResultsProofSection } from "@/components/ResultsProofSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { AboutSection } from "@/components/AboutSection";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import heroBusinessTeam from "@/assets/hero-business-team.jpg";
@@ -39,18 +33,27 @@ const Index = () => {
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 opacity-5"
+            className="absolute inset-0 opacity-10 md:opacity-5"
             style={{ 
               backgroundImage: `url(${heroAbstractBg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
           ></div>
+
+          {/* Subtle purple/blue radial glows for smaller screens */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-80 md:opacity-50 mix-blend-screen"
+            style={{
+              background:
+                'radial-gradient(1000px 500px at 15% 25%, hsl(var(--secondary) / 0.18), transparent 60%), radial-gradient(900px 450px at 85% 30%, hsl(var(--primary) / 0.14), transparent 60%)'
+            }}
+          />
           
           {/* Floating geometric shapes */}
           <div className="absolute inset-0">
             <motion.div
-              className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
+              className="absolute top-20 left-10 w-28 h-28 md:w-20 md:h-20 bg-primary/20 md:bg-primary/10 rounded-full blur-xl"
               animate={{
                 y: [0, -20, 0],
                 scale: [1, 1.1, 1],
@@ -63,7 +66,7 @@ const Index = () => {
               }}
             />
             <motion.div
-              className="absolute top-40 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl"
+              className="absolute top-40 right-20 w-36 h-36 md:w-32 md:h-32 bg-secondary/25 md:bg-secondary/10 rounded-full blur-xl"
               animate={{
                 y: [0, 30, 0],
                 scale: [1, 0.8, 1],
@@ -77,7 +80,7 @@ const Index = () => {
               }}
             />
             <motion.div
-              className="absolute bottom-20 left-1/4 w-16 h-16 bg-primary/15 rounded-full blur-lg"
+              className="absolute bottom-20 left-1/4 w-24 h-24 md:w-16 md:h-16 bg-primary/25 md:bg-primary/15 rounded-full blur-lg"
               animate={{
                 x: [0, 20, 0],
                 y: [0, -15, 0],
@@ -93,7 +96,7 @@ const Index = () => {
           </div>
           
           {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 opacity-[0.06] md:opacity-[0.03]">
             <div className="h-full w-full" style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
               backgroundSize: '40px 40px'
@@ -114,7 +117,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-6 py-3 text-sm">
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-6 py-3 text-sm">
                   <motion.div
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -131,11 +134,11 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <span className="text-foreground">Stop Wasting Time on </span>
+                <span className="text-foreground">AI Automation for </span>
                 <div className="text-primary">
                   <Typewriter
                     options={{
-                      strings: ['Manual Tasks', 'Repetitive Work', 'Low-Value Activities', 'Admin Tasks'],
+                      strings: ['Back-Office Operations', 'Customer Support', 'Finance Workflows', 'Sales Ops'],
                       autoStart: true,
                       loop: true,
                       delay: 100,
@@ -147,12 +150,12 @@ const Index = () => {
               </motion.h1>
               
               <motion.h2 
-                className="text-3xl lg:text-4xl font-bold text-primary leading-tight"
+                className="text-3xl lg:text-4xl font-semibold text-muted-foreground leading-snug"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Automate 40+ Hours of Manual Work Every Week
+                Cut manual work by 40–60% in 90 days — securely and at scale
               </motion.h2>
               
               <motion.p 
@@ -161,7 +164,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                AI-powered workflows that scale with your business. Focus on growth, not repetitive tasks.
+                Design, deploy, and maintain enterprise-grade AI workflows across your stack. SSO & RBAC, audit logs, and data residency built-in.
               </motion.p>
               
               <motion.div 
@@ -177,22 +180,11 @@ const Index = () => {
                   <Button 
                     size="lg" 
                     onClick={scrollToContact}
-                    className="bg-primary text-primary-foreground text-lg px-10 py-6 rounded-2xl font-semibold shadow-card hover:shadow-elegant group relative overflow-hidden"
+                    className="bg-primary text-primary-foreground text-lg px-8 py-5 rounded-xl font-semibold shadow-card hover:shadow-elegant"
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-primary-foreground/10"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.6 }}
-                    />
                     <span className="relative flex items-center">
-                      Get Your Free Automation Audit
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <Rocket className="ml-3 h-5 w-5" />
-                      </motion.div>
+                      Book a Strategy Call
+                      <Rocket className="ml-3 h-5 w-5" />
                     </span>
                   </Button>
                 </motion.div>
@@ -205,7 +197,7 @@ const Index = () => {
                     variant="outline" 
                     size="lg"
                     onClick={scrollToCalculator}
-                    className="text-lg px-10 py-6 rounded-2xl font-semibold bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80"
+                    className="text-lg px-8 py-5 rounded-xl font-medium bg-card/60 backdrop-blur-sm border-border/60 hover:bg-card/80"
                   >
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
@@ -213,7 +205,7 @@ const Index = () => {
                     >
                       <BarChart3 className="mr-3 h-5 w-5" />
                     </motion.div>
-                    Calculate Your Savings
+                    See Your ROI in 30s
                   </Button>
                 </motion.div>
               </motion.div>
@@ -228,7 +220,7 @@ const Index = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
-                <Card className="relative bg-card/80 backdrop-blur-sm border-border/50 shadow-2xl">
+                <Card className="relative bg-card/50 md:bg-card/70 backdrop-blur-sm border-border/50 shadow-2xl">
                   <CardContent className="p-8">
                     <div className="space-y-6">
                       <div className="flex items-center space-x-3">
@@ -269,8 +261,10 @@ const Index = () => {
         </div>
       </section>
 
+      
+
       {/* 2. PROBLEM STATEMENT - Why We Exist */}
-      <section className="py-20 bg-gradient-to-br from-red-50/50 to-orange-50/50">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -279,7 +273,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Badge className="bg-red-100 border-red-200 text-red-700 font-semibold px-4 py-2 mb-6">
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6">
               <Target className="w-4 h-4 mr-2" />
               The Real Problem
             </Badge>
@@ -299,28 +293,28 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-red-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Clock className="h-10 w-10 text-red-600" />
+                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Clock className="h-10 w-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-red-700">Time-Consuming Manual Tasks</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">Time-Consuming Manual Tasks</h3>
                     <p className="text-muted-foreground mb-6">
                       Your team wastes 40+ hours per week on data entry, admin work, and repetitive processes that could be automated.
                     </p>
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center justify-between">
                         <span>Data Entry</span>
-                        <span className="text-red-600 font-semibold">15h/week</span>
+                        <span className="text-primary font-semibold">15h/week</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Report Generation</span>
-                        <span className="text-red-600 font-semibold">8h/week</span>
+                        <span className="text-primary font-semibold">8h/week</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Email Processing</span>
-                        <span className="text-red-600 font-semibold">12h/week</span>
+                        <span className="text-primary font-semibold">12h/week</span>
                       </div>
                     </div>
                   </div>
@@ -334,28 +328,28 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-orange-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Workflow className="h-10 w-10 text-orange-600" />
+                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Workflow className="h-10 w-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-orange-700">Fragmented Workflows</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">Fragmented Workflows</h3>
                     <p className="text-muted-foreground mb-6">
                       Multiple apps and tools create bottlenecks and reduce productivity across your organization.
                     </p>
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center justify-between">
                         <span>Context Switching</span>
-                        <span className="text-orange-600 font-semibold">-40%</span>
+                        <span className="text-primary font-semibold">-40%</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Data Sync Issues</span>
-                        <span className="text-orange-600 font-semibold">-25%</span>
+                        <span className="text-primary font-semibold">-25%</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Process Delays</span>
-                        <span className="text-orange-600 font-semibold">-60%</span>
+                        <span className="text-primary font-semibold">-60%</span>
                       </div>
                     </div>
                   </div>
@@ -369,28 +363,28 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-purple-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Users className="h-10 w-10 text-purple-600" />
+                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Users className="h-10 w-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-purple-700">Scaling Requires More People</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-primary">Scaling Requires More People</h3>
                     <p className="text-muted-foreground mb-6">
                       Growth means adding headcount instead of improving efficiency and productivity.
                     </p>
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center justify-between">
                         <span>New Hires Needed</span>
-                        <span className="text-purple-600 font-semibold">+3/month</span>
+                        <span className="text-primary font-semibold">+3/month</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Training Time</span>
-                        <span className="text-purple-600 font-semibold">+2 weeks</span>
+                        <span className="text-primary font-semibold">+2 weeks</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Management Overhead</span>
-                        <span className="text-purple-600 font-semibold">+50%</span>
+                        <span className="text-primary font-semibold">+50%</span>
                       </div>
                     </div>
                   </div>
@@ -407,29 +401,29 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200/50">
+              <Card className="bg-card border-border">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <TrendingUp className="h-6 w-6 text-red-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <TrendingUp className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-red-700">The Cost of Inaction</h3>
+                  <h3 className="text-2xl font-bold text-primary">The Cost of Inaction</h3>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Every month you delay automation, you're losing <span className="font-bold text-red-600">$15,000+ in productivity</span> and 
-                  <span className="font-bold text-red-600"> 160+ hours of strategic work</span> that could be driving your business forward.
+                  Every month you delay automation, you're losing <span className="font-bold text-primary">$15,000+ in productivity</span> and 
+                  <span className="font-bold text-primary"> 160+ hours of strategic work</span> that could be driving your business forward.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-2">$15K</div>
+                    <div className="text-3xl font-bold text-primary mb-2">$15K</div>
                     <div className="text-sm text-muted-foreground">Monthly productivity loss</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-2">160h</div>
+                    <div className="text-3xl font-bold text-primary mb-2">160h</div>
                     <div className="text-sm text-muted-foreground">Hours wasted per month</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-2">-40%</div>
+                    <div className="text-3xl font-bold text-primary mb-2">-40%</div>
                     <div className="text-sm text-muted-foreground">Team efficiency</div>
                   </div>
                 </div>
@@ -440,7 +434,7 @@ const Index = () => {
       </section>
 
       {/* 3. SOLUTION OVERVIEW - What We Do */}
-      <section className="py-20 bg-gradient-to-br from-green-50/50 to-blue-50/50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -449,7 +443,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Badge className="bg-green-100 border-green-200 text-green-700 font-semibold px-4 py-2 mb-6">
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6">
               <Sparkles className="w-4 h-4 mr-2" />
               The Solution
             </Badge>
@@ -470,11 +464,11 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-green-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3">
-                    <div className="p-3 bg-green-100 rounded-lg">
-                      <Brain className="h-7 w-7 text-green-600" />
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Brain className="h-7 w-7 text-primary" />
                     </div>
                     <span className="text-2xl">AI-First Automation Design</span>
                   </CardTitle>
@@ -485,8 +479,8 @@ const Index = () => {
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">Natural Language Processing</div>
@@ -494,8 +488,8 @@ const Index = () => {
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">Computer Vision</div>
@@ -503,8 +497,8 @@ const Index = () => {
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-green-600" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">GPT-Powered Decisions</div>
@@ -522,11 +516,11 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-blue-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-secondary/20">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3">
-                    <div className="p-3 bg-blue-100 rounded-lg">
-                      <Settings className="h-7 w-7 text-blue-600" />
+                    <div className="p-3 bg-secondary/10 rounded-lg">
+                      <Settings className="h-7 w-7 text-secondary" />
                     </div>
                     <span className="text-2xl">Custom Workflows Tailored to Your Business</span>
                   </CardTitle>
@@ -537,8 +531,8 @@ const Index = () => {
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-secondary" />
                       </div>
                       <div>
                         <div className="font-semibold">Industry-Specific Solutions</div>
@@ -546,8 +540,8 @@ const Index = () => {
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-secondary" />
                       </div>
                       <div>
                         <div className="font-semibold">Seamless Integration</div>
@@ -555,8 +549,8 @@ const Index = () => {
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-secondary" />
                       </div>
                       <div>
                         <div className="font-semibold">Scalable Architecture</div>
@@ -577,16 +571,16 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-emerald-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-8 w-8 text-emerald-600" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-emerald-700">Rapid Deployment</h3>
+                  <h3 className="text-xl font-bold mb-3 text-primary">Rapid Deployment</h3>
                   <p className="text-muted-foreground mb-4">
                     Get your first automation running in weeks, not months. Pilot projects with quick wins.
                   </p>
-                  <div className="text-2xl font-bold text-emerald-600">2-4 weeks</div>
+                  <div className="text-2xl font-bold text-primary">2-4 weeks</div>
                   <div className="text-sm text-muted-foreground">to first automation</div>
                 </CardContent>
               </Card>
@@ -598,16 +592,16 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-purple-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-purple-600" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-purple-700">Enterprise Security</h3>
+                  <h3 className="text-xl font-bold mb-3 text-primary">Enterprise Security</h3>
                   <p className="text-muted-foreground mb-4">
                     Bank-level security with end-to-end encryption and compliance with industry standards.
                   </p>
-                  <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                  <div className="text-2xl font-bold text-primary">99.9%</div>
                   <div className="text-sm text-muted-foreground">uptime guarantee</div>
                 </CardContent>
               </Card>
@@ -619,16 +613,16 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-orange-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-orange-600" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-orange-700">Ongoing Support</h3>
+                  <h3 className="text-xl font-bold mb-3 text-primary">Ongoing Support</h3>
                   <p className="text-muted-foreground mb-4">
                     We adapt your automations as your business evolves. Long-term partnership approach.
                   </p>
-                  <div className="text-2xl font-bold text-orange-600">24/7</div>
+                  <div className="text-2xl font-bold text-primary">24/7</div>
                   <div className="text-sm text-muted-foreground">support available</div>
                 </CardContent>
               </Card>
@@ -643,31 +637,31 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-r from-green-50 to-blue-50 border-green-200/50">
+            <Card className="bg-card border-border">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <Rocket className="h-6 w-6 text-green-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Rocket className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-green-700">The Transformation</h3>
+                  <h3 className="text-2xl font-bold text-primary">The Transformation</h3>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  From <span className="font-bold text-red-600">40+ hours of manual work</span> to 
-                  <span className="font-bold text-green-600"> 5 hours of oversight</span>. 
-                  From <span className="font-bold text-red-600">fragmented processes</span> to 
-                  <span className="font-bold text-green-600"> seamless automation</span>.
+                  From <span className="font-bold text-primary">40+ hours of manual work</span> to 
+                  <span className="font-bold text-primary"> 5 hours of oversight</span>. 
+                  From <span className="font-bold text-primary">fragmented processes</span> to 
+                  <span className="font-bold text-primary"> seamless automation</span>.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-green-600 mb-2">-85%</div>
+                    <div className="text-3xl font-bold text-primary mb-2">-85%</div>
                     <div className="text-sm text-muted-foreground">Time reduction</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-green-600 mb-2">+300%</div>
+                    <div className="text-3xl font-bold text-primary mb-2">+300%</div>
                     <div className="text-sm text-muted-foreground">Productivity increase</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-green-600 mb-2">$50K+</div>
+                    <div className="text-3xl font-bold text-primary mb-2">$50K+</div>
                     <div className="text-sm text-muted-foreground">Annual savings</div>
                   </div>
                 </div>
@@ -678,7 +672,24 @@ const Index = () => {
       </section>
 
       {/* 4. ROI CALCULATOR - Interactive Engagement */}
-      <section id="calculator" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section id="calculator" className="relative py-20 bg-background">
+        {/* subtle light band for contrast on dark pages */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(1200px 600px at 50% 25%, rgba(255,255,255,0.08), transparent 60%)'
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))'
+            }}
+          />
+        </div>
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -744,29 +755,29 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-green-50 to-blue-50 border-green-200/50">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
                 <CardContent className="p-6">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Star className="h-8 w-8 text-green-600" />
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Star className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold mb-4">Average Client Results</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-sm">Hours saved/week:</span>
-                        <span className="font-bold text-green-600">40h</span>
+                        <span className="font-bold text-primary">40h</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Monthly savings:</span>
-                        <span className="font-bold text-green-600">$15K</span>
+                        <span className="font-bold text-primary">$15K</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Productivity boost:</span>
-                        <span className="font-bold text-green-600">3x</span>
+                        <span className="font-bold text-primary">3x</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Time to deploy:</span>
-                        <span className="font-bold text-green-600">2-4w</span>
+                        <span className="font-bold text-primary">2-4w</span>
                       </div>
                     </div>
                   </div>
@@ -807,14 +818,76 @@ const Index = () => {
       {/* 5. HOW IT WORKS - Process */}
       <HowItWorksSection />
 
-      {/* 6. RESULTS & PROOF - Social Proof */}
-      <ResultsProofSection />
+      {/* 6. RESULTS & PROOF - Social Proof (keep one concise section) */}
+      <RealResultsSection />
 
-      {/* 7. SERVICES DEEP DIVE - What You Offer */}
-      <ServicesSection />
+      {/* ENTERPRISE GUARDRAILS */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-6">
+              Enterprise-grade
+            </Badge>
+            <h2 className="text-4xl font-bold mb-3">Security, Compliance, and Scale</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">Designed for mid–large organizations operating in regulated environments.</p>
+          </motion.div>
 
-      {/* 8. ABOUT QUORAFLO - Company Credibility */}
-      <AboutSection />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: Lock, title: 'SSO & RBAC', desc: 'SAML/SSO, granular role-based access controls, and audit trails.' },
+              { icon: FileCheck, title: 'Compliance', desc: 'SOC 2 readiness, data retention policies, configurable PII redaction.' },
+              { icon: Server, title: 'Scalable Architecture', desc: 'Horizontal scaling, retries, observability, and SLAs.' }
+            ].map(({ icon: Icon, title, desc }) => (
+              <Card key={title} className="h-full border-primary/20">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-1">{title}</h3>
+                      <p className="text-muted-foreground text-sm">{desc}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INTEGRATIONS */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="bg-secondary/10 border-secondary/20 text-secondary font-semibold px-4 py-2 mb-6">
+              Integrations
+            </Badge>
+            <h2 className="text-4xl font-bold mb-3">Plug Into Your Stack</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">We orchestrate across CRM, ERP, data warehouses, and communication tools.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            {[ 'Salesforce', 'HubSpot', 'Slack', 'Gmail', 'Notion', 'Airtable', 'Snowflake', 'BigQuery', 'Stripe', 'Zendesk', 'Jira', 'QuickBooks' ].map((tool) => (
+              <div key={tool} className="text-center py-3 px-4 rounded-lg bg-card/60 border border-border/50 text-foreground/80">
+                {tool}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Removed Services and About from homepage for focus */}
 
       {/* 9. CONTACT & NEXT STEPS - Conversion */}
       <section id="contact" className="py-20 bg-background">

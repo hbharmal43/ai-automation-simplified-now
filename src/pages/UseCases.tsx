@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight, FileText, Share2, Package, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -38,46 +39,41 @@ const UseCases = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-slate-50 via-orange-50 to-purple-50">
+      <section className="pt-28 pb-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-5xl font-bold text-slate-900 mb-6">
-              Real Automations We've Built
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Don't just imagine — here's what's possible (or can be built for you).
-            </p>
+            <Badge className="bg-primary/10 border-primary/20 text-primary font-semibold px-4 py-2 mb-4">Use Cases</Badge>
+            <h1 className="text-5xl font-display font-bold text-foreground mb-4">Real Automations We've Built</h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Don't just imagine — here's what's possible (or can be built for you).</p>
           </div>
         </div>
       </section>
 
       {/* Use Cases */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">💼 Success Stories & Workflows</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              See how we've transformed businesses with custom automation solutions that save time and increase efficiency.
-            </p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">Success Stories & Workflows</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">See how we've transformed businesses with custom automation solutions that save time and increase efficiency.</p>
           </div>
           
           <div className="space-y-12">
             {useCases.map((useCase, index) => (
-              <Card key={index} className="max-w-4xl mx-auto hover-scale bg-white shadow-lg animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={index} className="max-w-4xl mx-auto hover-scale bg-card border-border shadow-card animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader className="pb-4">
                   <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-gray-50 rounded-xl">
+                    <div className="p-3 bg-primary/10 rounded-xl">
                       {useCase.icon}
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-2xl text-slate-900 mb-3">{useCase.title}</CardTitle>
+                      <CardTitle className="text-2xl text-foreground mb-3">{useCase.title}</CardTitle>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {useCase.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
+                          <span key={tagIndex} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
                             {tag}
                           </span>
                         ))}
@@ -86,17 +82,17 @@ const UseCases = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="font-medium text-blue-900 mb-2">Workflow:</div>
-                    <div className="text-blue-800 font-mono text-sm mb-2">{useCase.workflow}</div>
+                  <div className="bg-primary/10 p-4 rounded-lg">
+                    <div className="font-medium text-primary mb-2">Workflow:</div>
+                    <div className="text-foreground font-mono text-sm mb-2">{useCase.workflow}</div>
                     {useCase.subWorkflow && (
-                      <div className="text-blue-700 text-sm">{useCase.subWorkflow}</div>
+                      <div className="text-muted-foreground text-sm">{useCase.subWorkflow}</div>
                     )}
                   </div>
                   
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="font-medium text-green-900 mb-2">Use case:</div>
-                    <div className="text-green-800 text-sm">{useCase.useCase}</div>
+                  <div className="bg-muted/30 p-4 rounded-lg">
+                    <div className="font-medium text-foreground mb-2">Use case:</div>
+                    <div className="text-muted-foreground text-sm">{useCase.useCase}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -106,65 +102,19 @@ const UseCases = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">✨ Want one of these in your business?</h2>
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            We can build custom automations like these tailored to your specific needs and workflows.
-          </p>
+          <h2 className="text-3xl font-bold text-foreground mb-6">Want one of these in your business?</h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We can build custom automations like these tailored to your specific needs and workflows.</p>
           <Link to="/contact">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4">
               Get Started
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 bg-black text-white">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="text-2xl font-bold text-orange-400 mb-4">AutoGenix</div>
-              <p className="text-gray-400">
-                Enterprise-scale AI automation for modern businesses.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Solutions</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/services" className="hover:text-white transition-colors">Workflow Automation</Link></li>
-                <li><Link to="/services" className="hover:text-white transition-colors">Data Processing</Link></li>
-                <li><Link to="/services" className="hover:text-white transition-colors">AI Integration</Link></li>
-                <li><Link to="/services" className="hover:text-white transition-colors">Enterprise Security</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Contact</li>
-                <li>Support</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Documentation</li>
-                <li>Case Studies</li>
-                <li>Blog</li>
-                <li>Community</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <div className="text-sm text-gray-500">
-              © 2024 AutoGenix. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* End of page content */}
     </div>
   );
 };
